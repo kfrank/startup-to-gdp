@@ -14,30 +14,58 @@ $(document).ready(function() {
 		});
   }
 
-	appendName('countries');
-	appendName('startups');
+	appendName('country');
+	appendName('startup');
 
-	// When an item is selected, show the value
-	$('select').change(function(){
-		  optSelect = $('#startups option:selected');
-			chosenStartup = optSelect.text();
+	function findWorth(selected) {
+		//optSelect = $('#startup option:selected');
+		//chosenStartup = $("option:selected", this).val();
 
-			$('#test').text( chosenStartup + ' is worth more than');
-			value = optSelect.val();
+		
+		value = chosen.val();
 
+		if ( whatItWas == 'startup' ) {
 			// Grab value.raised
-			$.getJSON('_/js/startups.json', function(json) {
+			$.getJSON('_/js/startup.json', function(json) {
 				startupWorth = json[value].raised;
 			});
 
-			$.getJSON('_/js/countries.json', function(json) {
+			$.getJSON('_/js/country.json', function(json) {
 				$.each(json, function(index, item) {
 						
 					if ( parseFloat(item.gdp.replace(/,/g, '')) < (parseFloat(startupWorth.replace(/,/g, ''))) ) {
-						$('#test').append('<li>' + item.itemName + '</li>');
+						$('#results').append('<li>' + item.itemName + '</li>');
 					}
 
 				});
 			});
+			$('#test').text( chosen.text() + ' is worth more than');
+
+		} else {
+			// Grab value.raised
+			$.getJSON('_/js/country.json', function(json) {
+				countryWorth = json[value].gdp;
+			});
+
+			$.getJSON('_/js/startup.json', function(json) {
+				$.each(json, function(index, item) {
+						
+					if ( parseFloat(item.raised.replace(/,/g, '')) > (parseFloat(countryWorth.replace(/,/g, ''))) ) {
+						$('#results').append('<li>' + item.itemName + '</li>');
+					}
+
+				});
+			});
+
+			$('#test').text( chosen.text() + ' is worth less than');
+		}		
+	}
+
+	// When an item is selected, show the value
+	$('select').change(function(){
+		$('#results').html('');
+		chosen = $("option:selected", this)
+		whatItWas = $(this).attr("id");
+		findWorth();
 	});
 });
