@@ -1,0 +1,34 @@
+[
+  {
+    "itemName":"Facebook",
+    "raised":"2,335,700,000"
+  },
+  {
+    "itemName":"Skype",
+    "raised":"2,668,800,000"
+  },
+  {
+    "itemName":"TaskRabbit",
+    "raised":"37,675,000"
+  },
+  {
+    "itemName":"Kickstarter",
+    "raised":"700,000,000"
+  },
+  {
+    "itemName":"Google",
+    "raised":"250,100,000"
+  },
+  {
+    "itemName":"Uber",
+    "raised":"440,450,000"
+  },
+  {
+    "itemName":"LinkedIn",
+    "raised":"103,200,000"
+  },
+  {
+    "itemName":"Square",
+    "raised":"140,500,000"
+  }
+]
