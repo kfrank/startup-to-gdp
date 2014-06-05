@@ -4,13 +4,20 @@
 	<meta charset="UTF-8">
 	<title>Test</title>
 	<link rel="stylesheet" href="_/css/chosen.min.css">
+	<link rel="stylesheet" href="_/css/main.css">
 </head>
 <body>
-   <select name="country" id="country" data-placeholder="Choose a Country..."></select>
-   <select name="startup" id="startup" data-placeholder="Choose a Startup..."></select>
-   <h1 id="test"></h1>
-   <ul id="results"></ul>
-
+	<header>
+		<!-- <h1>Startup to GDP</h1>
+		<p>Sed posuere consectetur est at lobortis. Curabitur blandit tempus porttitor.</p> -->
+			<select name="country" id="country" data-placeholder="Choose a Country..."></select>
+			<select name="startup" id="startup" data-placeholder="Choose a Startup..."></select>
+	</header>
+	<div class="results">
+		<h1 id="test"></h1>
+	  <ul id="results"></ul>
+	</div>
+   
    <!-- http://data.worldbank.org/data-catalog/GDP-ranking-table -->
 
 	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>

@@ -1,0 +1,67 @@
+@import "_variables";
+@import "_normalize";
+
+html, body {
+	height: 100%;
+}
+
+header {
+	overflow: hidden;
+	height: 100%;
+	-webkit-transition: height 0.3s ease;
+	transition: height 0.3s ease;
+}
+
+select {
+	height: 100%;
+	width: 50%;
+	float: left;
+	padding: 2%;
+	border: none;
+	appearance: none;
+	-webkit-appearance: none;
+	color: #fff;
+	border-radius: 0;
+	-webkit-font-smoothing: antialiased;
+	text-align: center;
+
+	&#startup {
+		background: $Arapawa;
+	}
+
+	&#country {
+		background: $HippieBlue;
+	}
+}
+
+.chosen-container {
+	float: left;
+
+	&#startup_chosen {
+		background: $Arapawa;
+	}
+
+	&#country_chosen {
+		background: $HippieBlue;
+	}
+}
+
+.results {
+	opacity: 0;
+	text-align: center;
+
+	-webkit-transition: opacity 0.3s ease;
+	transition: opacity 0.3s ease;
+
+	transition-delay: 0.5s;
+	-webkit-transition-delay: 0.5s;
+}
+
+body.selected {
+	header {	
+		height: 5em;
+	}
+	.results {
+		opacity: 1;
+	}
+}
