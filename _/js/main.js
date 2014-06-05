@@ -2,17 +2,24 @@ $(document).ready(function() {
 	// Get GDP
 	
 	$.getJSON('http://jsonp.jit.su/?callback=&url=http%3A%2F%2Fapi.worldbank.org%2Fcountries%2Fall%2Findicators%2FNY.GDP.MKTP.CD%3Fdate%3D2000%26format%3Djson%26per_page%3D300', function(data){
-
 	  $.each(data[1],function(i,value){
-	  	console.log(value.country["value"]);
 	  	$('#country')
-			.append($("<option></option>")
-			.attr("value",i)
-			.text(value.country["value"])); 
-			$("select").trigger("chosen:updated");
+			.append($('<option></option>')
+			.attr('value',i)
+			.text(value.country['value'])); 
+			$('select').trigger('chosen:updated');
 	  });
 	});
 
+	$.getJSON('http://jsonp.jit.su/?callback=&url=https%3A%2F%2Fapi.angel.co%2F1%2Fstartups%3Ffilter%3Draising', function(data){
+	  $.each(data['startups'],function(i,value){
+	  	$('#startup')
+			.append($('<option></option>')
+			.attr('value',i)
+			.text(value['name'])); 
+			$('select').trigger('chosen:updated');
+	  });
+	});
 
 	// var startupWorth = 0,
 	//     chosenStartup = 0;
